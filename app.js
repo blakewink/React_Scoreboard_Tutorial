@@ -1,16 +1,46 @@
-const title = <h1>My First React Element</h1>;
+const Header = () => {
+    return (
+        <header>
+            <h1>Score Board</h1>
+            <span className='stats'>Players: 1</span>
+        </header>
+    );
+};
+
+const Player = () => {
+    return (
+        <div className = 'player'>
+            <span className='player-name'>
+                Joshua
+            </span>
+            <Counter />
+        </div>
+    );
+};
 
 
+const Counter = () => {
+    return(
+        <div className='counter'>
+                <button className='counter-action decrement'> - </button>
+                <span className='counter-score'>35</span>
+                <button className='counter-action increment'> + </button>
+        </div>
+    );
+};
 
-const description = <p>I just learned how to create a React node and render it into the DOM</p>;
 
-const header = React.createElement(
-    'header',
-    null,
-    title,
-    description
-)
+const App = () =>{
+    return(
+        <div className='scoreboard'>
+            <Header />
+            {/* {Player list} */}
+            <Player />
+        </div>
+    );
+};
+
 ReactDOM.render(
-    header, 
+    <App />, 
     document.getElementById('root')
 );
